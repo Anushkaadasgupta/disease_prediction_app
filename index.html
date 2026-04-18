@@ -1,0 +1,30 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Prediction</title>
+</head>
+<body>
+    <h2>Disease Prediction Form</h2>
+    <form method="POST" action="/predict">
+        Age: <input type="number" name="age" required><br><br>
+        Gender:
+        <select name="gender">
+            <option>Male</option>
+            <option>Female</option>
+        </select><br><br>
+        Smoking:
+        <select name="smoking">
+            <option>Yes</option>
+            <option>No</option>
+        </select><br><br>
+        Family History:
+        <select name="family_history">
+            <option>Yes</option>
+            <option>No</option>
+        </select><br><br>
+        BMI: <input type="number" step="any" name="bmi" required><br><br>
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
