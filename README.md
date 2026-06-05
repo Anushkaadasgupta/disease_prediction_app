@@ -1,4 +1,4 @@
-# 🩺 Disease Prediction Web App
+# 🩺 CardioGluco
 
 A simple **Flask-based web application** that predicts disease risk based on user inputs like age, gender, smoking habits, family history, and BMI using a trained Machine Learning model.
 
