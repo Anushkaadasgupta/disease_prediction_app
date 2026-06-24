@@ -1,132 +1,46 @@
-# 🩺 CardioGluco
+# CardioGluco
 
-A simple **Flask-based web application** that predicts disease risk based on user inputs like age, gender, smoking habits, family history, and BMI using a trained Machine Learning model.
+A Flask-based ML web app that predicts risk of **Diabetes**, **Heart Disease**, or **No Disease** based on patient health parameters.
 
----
+## Features
+- Random Forest classifier
+- Responsive UI with animated sliders
+- Probability breakdown for all 3 classes
+- Production-ready with Gunicorn
 
-## 🚀 Features
-
-* User-friendly web interface
-* Takes health-related inputs
-* Encodes categorical data
-* Uses a trained ML model (`model.pkl`)
-* Displays prediction results instantly
-
----
-
-## 🛠️ Tech Stack
-
-* **Frontend**: HTML, CSS
-* **Backend**: Python (Flask)
-* **Libraries**: NumPy, Pickle
-* **Model**: Machine Learning (trained externally)
-
----
-
-## 📁 Project Structure
-
-```
-disease_prediction_app/
-│
-├── app.py
-├── model.pkl
-├── health_data.csv
-├── templates/
-│   ├── index.html
-│   └── result.html
-├── static/
-│   └── style.css
-├── .gitignore
-└── README.md
-```
-
----
-
-## ⚙️ Installation & Setup
-
-### 1. Clone the repository
-
-```
-git clone https://github.com/your-username/disease_prediction_app.git
-cd disease_prediction_app
-```
-
-### 2. Create virtual environment
-
-```
-python -m venv venv
-```
-
-Activate it:
-
-* Windows:
-
-```
-venv\Scripts\activate
-```
-
-* Mac/Linux:
-
-```
-source venv/bin/activate
-```
-
-### 3. Install dependencies
-
-```
-pip install flask numpy
-```
-
----
-
-## ▶️ Run the App
-
-```
+## Local Run
+```bash
+pip install -r requirements.txt
+python train_model.py
 python app.py
 ```
 
-Open browser and go to:
+Visit http://localhost:5000
 
-```
-http://127.0.0.1:5000/
-```
+## Deploy to Render
 
----
+1. Push this project to a GitHub repository.
+2. Go to [render.com](https://render.com) and create a new **Web Service** or **Blueprint**.
+3. Connect your GitHub repo.
+4. Use these values if you are setting it manually:
+   - Build Command: `pip install -r requirements.txt && python train_model.py`
+   - Start Command: `gunicorn app:app`
+   - Environment: Python 3.11
+5. Deploy the service.
 
-## 📊 How It Works
+The included [render.yaml](/render.yaml) file can auto-configure the service on Render.
 
-1. User enters details in form
-2. Data is sent to backend (`/predict`)
-3. Categorical values are encoded
-4. Model predicts result
-5. Output is displayed on result page
+## Input Parameters
+| Field | Description |
+|---|---|
+| Age | Patient age (18-90) |
+| Gender | Male / Female |
+| BMI | Body Mass Index |
+| BP | Blood Pressure (mmHg) |
+| Sugar | Blood Sugar (mg/dL) |
+| Cholesterol | Cholesterol level (mg/dL) |
+| Smoking | Yes / No |
+| Family History | Yes / No |
 
----
-
-## ⚠️ Important Notes
-
-* `model.pkl` must be present in the root folder
-* Ensure correct folder structure (`templates/`)
-* Do not upload `venv/` or unnecessary files
-
----
-
-## 🌟 Future Improvements
-
-* Add more diseases
-* Improve UI design
-* Deploy online (Render / Railway / AWS)
-* Add user authentication
-
----
-
-## 👨‍💻 Author
-
-**Your Name**
-GitHub: https://github.com/Anushkaadasgupta
-
----
-
-## 📜 License
-
-This project is for educational purposes.
+## Disclaimer
+For educational and portfolio purposes only. Not a substitute for medical advice.
